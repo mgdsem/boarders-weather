@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { className } from 'postcss-selector-parser';
 
 class Time extends Component {
     constructor(props) {

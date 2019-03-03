@@ -8,9 +8,8 @@ const Header = () => (
     <header className="header">
         <Time />
         <h1>What should I skate today?</h1>
-        <img className="img skateboard" src={skateboard4} />
-        <img className="img windsurf" src={windsurf} />
-
+        <img className="img skateboard" alt="skateboard" src={skateboard4} />
+        <img className="img windsurf" alt="windsurfer" src={windsurf} />
     </header>
 )
 
