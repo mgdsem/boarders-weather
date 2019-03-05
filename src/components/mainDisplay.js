@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
+import { filterDaysWeather } from '../helpers/dates';
 import { getWeather } from '../api';
+
 import Input from './Input';
 import Button from './Button';
 
@@ -37,7 +39,7 @@ class MainDisplay extends Component {
             getWeather(this.state.city)
                 .then((response) => {
                     this.setState({
-                        weather: response.data.list,
+                        weather: filterDaysWeather(response.data.list),
                         isError: false,
                         currentWeather: response.data.list[0]
                     })
@@ -51,10 +53,6 @@ class MainDisplay extends Component {
     }
 
     render() {
-        this.state.weather.forEach((hour) => {
-            console.log(moment(hour.dt * 1000).format());
-        })
-
         console.log(this.state);
         return (
             <div>
