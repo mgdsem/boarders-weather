@@ -6,7 +6,9 @@ const Input = ({
     id,
     value,
     placeholder,
-    onChange
+    onChange,
+    hasError,
+    errorText
 }) => (
         <div>
             <label htmlFor={id}>{labelText}</label>
@@ -18,6 +20,9 @@ const Input = ({
                 placeholder={placeholder}
                 onChange={onChange}
             />
+            {hasError && (
+                <p>{errorText}</p>
+            )}
         </div>
     )
 

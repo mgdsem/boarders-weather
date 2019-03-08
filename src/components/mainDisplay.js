@@ -6,6 +6,7 @@ import { getWeather } from '../api';
 
 import Input from './Input';
 import Button from './Button';
+import Card from './Card';
 
 class MainDisplay extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class MainDisplay extends Component {
 
         this.state = {
             city: '',
+            chosenCity: '',
             weather: [],
             isError: false,
             currentWeather: {}
@@ -41,7 +43,8 @@ class MainDisplay extends Component {
                     this.setState({
                         weather: filterDaysWeather(response.data.list),
                         isError: false,
-                        currentWeather: response.data.list[0]
+                        currentWeather: response.data.list[0],
+                        chosenCity: this.state.city
                     })
                 })
                 .catch((error) => {
@@ -56,11 +59,18 @@ class MainDisplay extends Component {
         console.log(this.state);
         return (
             <div>
-                <Input type="text" id="city" value={this.state.city} placeholder="choose a city" onChange={this.onCityChange} />
+                <Input
+                    type="text"
+                    id="city"
+                    value={this.state.city}
+                    placeholder="choose a city"
+                    onChange={this.onCityChange}
+                    hasError={this.state.isError}
+                    errorText="There is no information about choosen city. Pleace choose another city."
+                />
                 <Button onClick={this.onCityChoose}>Go!</Button>
-                {this.state.isError && (
-                    <p>There is no information about choosen city. Pleace choose another city. </p>
-                )}
+                <Card currentWeather={this.state.currentWeather} city={this.state.chosenCity} />
+
             </div>
         )
     }

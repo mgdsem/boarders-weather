@@ -8,4 +8,4 @@ const api = axios.create({
 
 // export const getCurrentWeather = (city) => api.get(`/weather?q=${city},pl&appid=${API_KEY}`);
 
-export const getWeather = (city) => api.get(`/forecast?q=${city},pl&appid=${API_KEY}`);
+export const getWeather = (city) => api.get(`/forecast?q=${city},pl&appid=${API_KEY}&units=metric`);
