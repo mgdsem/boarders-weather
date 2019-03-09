@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 
 import { filterDaysWeather } from '../helpers/dates';
 import { getWeather } from '../api';
@@ -69,7 +68,11 @@ class MainDisplay extends Component {
                     errorText="There is no information about choosen city. Pleace choose another city."
                 />
                 <Button onClick={this.onCityChoose}>Go!</Button>
-                <Card currentWeather={this.state.currentWeather} city={this.state.chosenCity} />
+                <Card
+                    currentWeather={this.state.currentWeather}
+                    city={this.state.chosenCity}
+                    futureWeather={this.state.weather}
+                />
 
             </div>
         )
