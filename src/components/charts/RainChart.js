@@ -8,7 +8,7 @@ const RainChart = ({
             <h2>Rain</h2>
             <ul>
                 {rains.map((rain, i) => (
-                    <li key={`${rain}-${i}`}>{rain || 0}</li>
+                    <li key={`${rain}-${i}`}>{rain || 0} mm/3h</li>
                 ))}
             </ul>
         </div>

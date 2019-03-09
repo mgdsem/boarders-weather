@@ -9,7 +9,7 @@ const Card = ({
     futureWeather
 }) => {
     const currentTemperature = currentWeather.main && Math.round(currentWeather.main.temp);
-    console.log(currentTemperature);
+
     return (
         <div>
             <CardTitle currentWeatherTemperature={currentTemperature} city={city} />

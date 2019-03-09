@@ -3,7 +3,6 @@ import React from 'react';
 const TemperatureChart = ({
     temperatures
 }) => {
-    console.log(temperatures);
     return (
         <div>
             <h2>Temperature</h2>

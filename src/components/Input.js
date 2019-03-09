@@ -12,6 +12,7 @@ const Input = ({
 }) => (
         <div>
             <label htmlFor={id}>{labelText}</label>
+
             <input
                 className="input"
                 type={type}
@@ -20,6 +21,7 @@ const Input = ({
                 placeholder={placeholder}
                 onChange={onChange}
             />
+
             {hasError && (
                 <p>{errorText}</p>
             )}

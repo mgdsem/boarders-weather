@@ -55,7 +55,6 @@ class MainDisplay extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div>
                 <Input
@@ -67,13 +66,14 @@ class MainDisplay extends Component {
                     hasError={this.state.isError}
                     errorText="There is no information about choosen city. Pleace choose another city."
                 />
+
                 <Button onClick={this.onCityChoose}>Go!</Button>
+
                 <Card
                     currentWeather={this.state.currentWeather}
                     city={this.state.chosenCity}
                     futureWeather={this.state.weather}
                 />
-
             </div>
         )
     }
