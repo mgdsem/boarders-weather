@@ -1,0 +1,26 @@
+.list {
+    display: flex;
+    // height: 250px;
+    background-color: red;
+
+    &__item-temp {
+        width: 10%;
+        height: 100%;
+        position: relative;
+        border: 1px solid black;
+    }
+
+    &__item-bar {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: blue;
+        height: 50px;
+        width: 60%;
+        transform: translate(-50%, -100%);
+
+        &--is-minus {
+            transform: translateX(-50%);
+        }
+    }
+}

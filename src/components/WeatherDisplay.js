@@ -31,22 +31,26 @@ class WeatherDisplay extends Component {
         const { currentChart } = this.state;
 
         return (
-            <div>
-                <Button onClick={() => this.setChart('temperature')}>Temperature</Button>
-                <Button onClick={() => this.setChart('wind')}>Wind</Button>
-                <Button onClick={() => this.setChart('rain')}>Rain</Button>
+            <div className="card__inner-wrapper">
+                <div className="card__charts-wrapper">
+                    {currentChart === 'temperature' && (
+                        <TemperatureChart temperatures={temperatures} />
+                    )}
 
-                {currentChart === 'temperature' && (
-                    <TemperatureChart temperatures={temperatures} />
-                )}
+                    {currentChart === 'wind' && (
+                        <WindChart winds={winds} />
+                    )}
 
-                {currentChart === 'wind' && (
-                    <WindChart winds={winds} />
-                )}
+                    {currentChart === 'rain' && (
+                        <RainChart rains={rains} />
+                    )}
+                </div>
 
-                {currentChart === 'rain' && (
-                    <RainChart rains={rains} />
-                )}
+                <div className="card__buttons-wrapper">
+                    <Button onClick={() => this.setChart('temperature')}>Temperature</Button>
+                    <Button onClick={() => this.setChart('wind')}>Wind</Button>
+                    <Button onClick={() => this.setChart('rain')}>Rain</Button>
+                </div>
             </div>
         )
     }

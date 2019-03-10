@@ -69,11 +69,13 @@ class MainDisplay extends Component {
 
                 <Button onClick={this.onCityChoose}>Go!</Button>
 
-                <Card
-                    currentWeather={this.state.currentWeather}
-                    city={this.state.chosenCity}
-                    futureWeather={this.state.weather}
-                />
+                {this.state.chosenCity && (
+                    <Card
+                        currentWeather={this.state.currentWeather}
+                        city={this.state.chosenCity}
+                        futureWeather={this.state.weather}
+                    />
+                )}
             </div>
         )
     }

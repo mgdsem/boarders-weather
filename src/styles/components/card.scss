@@ -1,0 +1,17 @@
+.card {
+    background-color: $card-bg;
+    width: 40rem;
+    margin: 0 auto;
+
+    &__inner-wrapper {
+        display: flex;
+    }
+
+    &__buttons-wrapper {
+        width: 20%;
+    }
+
+    &__charts-wrapper {
+        width: 80%;
+    }
+}
