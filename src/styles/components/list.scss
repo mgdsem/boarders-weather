@@ -7,7 +7,6 @@
         width: 10%;
         height: 100%;
         position: relative;
-        border: 1px solid black;
     }
 
     &__item-bar {
@@ -21,6 +20,17 @@
 
         &--is-minus {
             transform: translateX(-50%);
+        }
+    }
+
+    &__temp-value {
+        position: absolute;
+        top: -25px;
+        font-size: 10px;
+
+        &--is-minus {
+            top: auto;
+            bottom: -25px;
         }
     }
 }

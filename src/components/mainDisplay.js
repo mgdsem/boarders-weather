@@ -67,7 +67,7 @@ class MainDisplay extends Component {
                     errorText="There is no information about choosen city. Pleace choose another city."
                 />
 
-                <Button onClick={this.onCityChoose}>Go!</Button>
+                <Button onClick={this.onCityChoose} isSmall>Go!</Button>
 
                 {this.state.chosenCity && (
                     <Card

@@ -8,6 +8,9 @@
     }
 
     &__buttons-wrapper {
+        @include flex-center;
+        
+        flex-direction: column;
         width: 20%;
     }
 

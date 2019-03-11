@@ -8,7 +8,9 @@ const TemperatureChart = ({
         const roundedTemp = Math.round(temperature);
         if (roundedTemp >= 40) return '50%';
         if (roundedTemp === 0) return '0.5%';
-        return `${roundedTemp * 50 / 40}%`;
+
+        const percentage = roundedTemp * 50 / 40;
+        return `${percentage < 0 ? percentage * -1 : percentage}%`;
     }
 
     return (
@@ -20,11 +22,14 @@ const TemperatureChart = ({
                         className="list__item-temp"
                         key={`${temperature}-${i}`}
                     >
-                        {/* {Math.round(temperature)}&#8451; */}
+                        {console.log(temperature, calculateHeight(temperature))}
                         <div
                             style={{ height: calculateHeight(temperature) }}
                             className={`list__item-bar ${temperature < 0 ? 'list__item-bar--is-minus' : ''}`}
                         >
+                            <div className={`list__temp-value ${temperature < 0 ? 'list__temp-value--is-minus' : ''}`}>
+                                {Math.round(temperature)} &#176; C
+                            </div>
                         </div>
                     </li>
                 ))}
