@@ -1,0 +1,20 @@
+.card {
+    background-color: $card-bg;
+    width: 40rem;
+    margin: 0 auto;
+
+    &__inner-wrapper {
+        display: flex;
+    }
+
+    &__buttons-wrapper {
+        @include flex-center;
+        
+        flex-direction: column;
+        width: 20%;
+    }
+
+    &__charts-wrapper {
+        width: 80%;
+    }
+}

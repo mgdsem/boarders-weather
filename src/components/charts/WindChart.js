@@ -6,7 +6,7 @@ const WindChart = ({
     return (
         <div>
             <h2>Wind</h2>
-            <ul>
+            <ul className="list">
                 {winds.map((wind, i) => (
                     <li key={`${wind.speed}-${i}`}>{wind.speed} m/s</li>
                 ))}

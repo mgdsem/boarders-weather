@@ -67,13 +67,15 @@ class MainDisplay extends Component {
                     errorText="There is no information about choosen city. Pleace choose another city."
                 />
 
-                <Button onClick={this.onCityChoose}>Go!</Button>
+                <Button onClick={this.onCityChoose} isSmall>Go!</Button>
 
-                <Card
-                    currentWeather={this.state.currentWeather}
-                    city={this.state.chosenCity}
-                    futureWeather={this.state.weather}
-                />
+                {this.state.chosenCity && (
+                    <Card
+                        currentWeather={this.state.currentWeather}
+                        city={this.state.chosenCity}
+                        futureWeather={this.state.weather}
+                    />
+                )}
             </div>
         )
     }

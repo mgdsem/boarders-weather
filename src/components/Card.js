@@ -11,7 +11,7 @@ const Card = ({
     const currentTemperature = currentWeather.main && Math.round(currentWeather.main.temp);
 
     return (
-        <div>
+        <div className="card">
             <CardTitle currentWeatherTemperature={currentTemperature} city={city} />
             <WeatherDisplay futureWeather={futureWeather} />
         </div>
