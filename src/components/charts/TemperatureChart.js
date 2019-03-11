@@ -4,8 +4,7 @@ const TemperatureChart = ({
     temperatures
 }) => {
 
-    const calculateHeight = (temperature) => {
-        const roundedTemp = Math.round(temperature);
+    const calculateHeight = (roundedTemp) => {
         if (roundedTemp >= 40) return '50%';
         if (roundedTemp === 0) return '0.5%';
 
@@ -16,23 +15,29 @@ const TemperatureChart = ({
     return (
         <div>
             <h2>Temperature</h2>
+
             <ul style={{ height: '250px' }} className="list">
-                {temperatures.map((temperature, i) => (
-                    <li
-                        className="list__item-temp"
-                        key={`${temperature}-${i}`}
-                    >
-                        {console.log(temperature, calculateHeight(temperature))}
-                        <div
-                            style={{ height: calculateHeight(temperature) }}
-                            className={`list__item-bar ${temperature < 0 ? 'list__item-bar--is-minus' : ''}`}
+
+                {temperatures.map((temperature, i) => {
+                    const isMinus = temperature < 0;
+                    const roundedTemp = Math.round(temperature);
+
+                    return (
+                        <li
+                            className="list__item-temp"
+                            key={`${temperature}-${i}`}
                         >
-                            <div className={`list__temp-value ${temperature < 0 ? 'list__temp-value--is-minus' : ''}`}>
-                                {Math.round(temperature)} &#176; C
+                            <div
+                                style={{ height: calculateHeight(roundedTemp) }}
+                                className={`list__item-bar ${isMinus ? 'list__item-bar--is-minus' : ''}`}
+                            >
+                                <div className={`list__temp-value ${isMinus ? 'list__temp-value--is-minus' : ''}`}>
+                                    {roundedTemp} &#176; C
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                ))}
+                        </li>
+                    )
+                })}
             </ul>
         </div>
     )
