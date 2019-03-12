@@ -1,7 +1,12 @@
 .button {
+    @include btn-border();
+    
     width: 80px;
+    border: 2px solid $input-border-color;
+    outline: none;
 
     &--is-small {
         width: 50px;
+        margin-left: 20px;
     }
 }

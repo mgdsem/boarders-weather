@@ -26,7 +26,7 @@ class WeatherDisplay extends Component {
         const { futureWeather } = this.props;
         const temperatures = futureWeather.map((hourPred) => hourPred.main.temp);
         const winds = futureWeather.map((hourPred) => hourPred.wind);
-        const rains = futureWeather.map((hourPred) => hourPred.rain['3h']);
+        const rains = futureWeather.map((hourPred) => hourPred.rain && hourPred.rain['3h']);
 
         const { currentChart } = this.state;
 
