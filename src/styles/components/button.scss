@@ -1,12 +1,25 @@
 .button {
     @include btn-border();
-    
+
     width: 80px;
     border: 2px solid $input-border-color;
     outline: none;
+    background-color: $btn-bg;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $btn-bg-hov;
+    }
 
     &--is-small {
         width: 50px;
         margin-left: 20px;
+        background-color: $small-btn-bg;
+
+        &:hover {
+            background-color: $small-btn-bg-hov;
+        }
     }
 }
+
