@@ -25,7 +25,7 @@ class WeatherDisplay extends Component {
 
     render() {
         const { futureWeather } = this.props;
-        console.log(futureWeather);
+
         const temperatures = futureWeather.map((hourPred) => ({
             temp: hourPred.main.temp,
             hour: moment(hourPred.dt * 1000).format('HH:mm')
@@ -37,8 +37,6 @@ class WeatherDisplay extends Component {
             rain: hourPred.rain && hourPred.rain['3h'],
             hour: moment(hourPred.dt * 1000).format('HH:mm')
         }));
-
-        // const hours = futureWeather.map((hourPred) => moment(hourPred.dt * 1000).format('HH:mm'))
 
         const { currentChart } = this.state;
 
