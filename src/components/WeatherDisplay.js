@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 import TemperatureChart from './charts/TemperatureChart';
 import WindChart from './charts/WindChart';
@@ -24,9 +25,18 @@ class WeatherDisplay extends Component {
 
     render() {
         const { futureWeather } = this.props;
-        const temperatures = futureWeather.map((hourPred) => hourPred.main.temp);
+
+        const temperatures = futureWeather.map((hourPred) => ({
+            temp: hourPred.main.temp,
+            hour: moment(hourPred.dt * 1000).format('HH:mm')
+        }));
+
         const winds = futureWeather.map((hourPred) => hourPred.wind);
-        const rains = futureWeather.map((hourPred) => hourPred.rain['3h']);
+
+        const rains = futureWeather.map((hourPred) => ({
+            rain: hourPred.rain && hourPred.rain['3h'],
+            hour: moment(hourPred.dt * 1000).format('HH:mm')
+        }));
 
         const { currentChart } = this.state;
 

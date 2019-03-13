@@ -57,17 +57,21 @@ class MainDisplay extends Component {
     render() {
         return (
             <div>
-                <Input
-                    type="text"
-                    id="city"
-                    value={this.state.city}
-                    placeholder="choose a city"
-                    onChange={this.onCityChange}
-                    hasError={this.state.isError}
-                    errorText="There is no information about choosen city. Pleace choose another city."
-                />
+                <div className="input-and-btn-wrapper">
+                    <Input
+                        className="input"
+                        type="text"
+                        id="city"
+                        value={this.state.city}
+                        placeholder="choose a city"
+                        onChange={this.onCityChange}
+                        hasError={this.state.isError}
+                        errorText="There is no information about choosen city. Pleace choose another city."
+                    />
 
-                <Button onClick={this.onCityChoose} isSmall>Go!</Button>
+                    <Button onClick={this.onCityChoose} isSmall>Go!</Button>
+
+                </div>
 
                 {this.state.chosenCity && (
                     <Card

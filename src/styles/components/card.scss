@@ -2,13 +2,17 @@
     background-color: $card-bg;
     width: 40rem;
     margin: 0 auto;
+    padding: 2rem;
+    border-radius: 2%;
+    margin-bottom: 2rem;
+    border: 1px solid black;
 
     &__inner-wrapper {
         display: flex;
     }
 
     &__buttons-wrapper {
-        @include flex-center;
+        @include flex-center();
         
         flex-direction: column;
         width: 20%;
@@ -16,5 +20,17 @@
 
     &__charts-wrapper {
         width: 80%;
+    }
+
+    &__title {
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $title-color-hov;
+        }
     }
 }
