@@ -53,14 +53,14 @@ class MainDisplay extends Component {
     }
 
     render() {
-        function guessBlue(blueStart, redStart, bluePulled, redPulled) {
-            const pullMarble = (marble) => {
-                const allMarbles = Number(blueStart) + Number(redStart)
-                const numberOfBlue = (blueStart - bluePulled) / allMarbles
-                console.log(numberOfBlue);
+        // function guessBlue(blueStart, redStart, bluePulled, redPulled) {
+        //     const pullMarble = (marble) => {
+        //         const allMarbles = Number(blueStart) + Number(redStart)
+        //         const numberOfBlue = (blueStart - bluePulled) / allMarbles
+        //         console.log(numberOfBlue);
 
-            }
-        }
+        //     }
+        // }
 
         return (
             <div>

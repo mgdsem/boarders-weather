@@ -1,3 +1,7 @@
 .chart-title {
     text-decoration: underline;
+
+    &--has-mb {
+        margin-bottom: 80px;
+    }
 }
