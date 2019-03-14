@@ -13,7 +13,7 @@ class WeatherDisplay extends Component {
         this.setChart = this.setChart.bind(this);
 
         this.state = {
-            currentChart: 'temperature'
+            currentChart: 'wind'
         }
     }
 
@@ -31,7 +31,10 @@ class WeatherDisplay extends Component {
             hour: moment(hourPred.dt * 1000).format('HH:mm')
         }));
 
-        const winds = futureWeather.map((hourPred) => hourPred.wind);
+        const winds = futureWeather.map((hourPred) => ({
+            ...hourPred.wind,
+            hour: moment(hourPred.dt * 1000).format('HH:mm')
+        }));
 
         const rains = futureWeather.map((hourPred) => ({
             rain: hourPred.rain && hourPred.rain['3h'],

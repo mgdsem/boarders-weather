@@ -15,7 +15,7 @@ class MainDisplay extends Component {
         this.onCityChoose = this.onCityChoose.bind(this);
 
         this.state = {
-            city: '',
+            city: 'Lubin',
             chosenCity: '',
             weather: [],
             isError: false,
@@ -23,11 +23,9 @@ class MainDisplay extends Component {
         }
     }
 
-    // componentDidMount() {
-    //     getCurrentWeather('jastarnia').then((response) => {
-    //         console.log(response);
-    //     })
-    // }
+    componentDidMount() {
+        this.onCityChoose();
+    }
 
     onCityChange(e) {
         this.setState({

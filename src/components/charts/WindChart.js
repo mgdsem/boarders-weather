@@ -3,6 +3,7 @@ import React from 'react';
 const WindChart = ({
     winds
 }) => {
+    console.log(winds);
     return (
         <div>
             <h2>Wind</h2>
