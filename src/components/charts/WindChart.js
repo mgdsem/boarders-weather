@@ -1,5 +1,7 @@
 import React from 'react';
 
+import arrowIcon from '../../assets/img/arrow.png';
+
 const WindChart = ({
     winds
 }) => {
@@ -8,9 +10,15 @@ const WindChart = ({
         <div>
             <h2>Wind</h2>
             <ul className="list">
-                {winds.map((wind, i) => (
-                    <li key={`${wind.speed}-${i}`}>{wind.speed} m/s</li>
-                ))}
+                {winds.map((wind, i) => {
+                    return (
+                        <li key={`${wind.speed}-${i}`}>
+                            <div>{wind.speed} m/s</div>
+                            <div>{wind.hour}</div>
+                            <img src={arrowIcon} alt="wind direction" />
+                        </li>
+                    )
+                })}
             </ul>
         </div>
     )

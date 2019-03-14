@@ -23,7 +23,7 @@ const TemperatureChart = ({
         <div>
             <h2 className="chart-title">Temperature</h2>
 
-            <ul style={{ height: '250px' }} className="list">
+            <ul style={{ height: '250px' }} className="list temp-chart">
 
                 {temperatures.map((temperature, i) => {
                     const isMinus = temperature.temp < 0;
@@ -31,7 +31,7 @@ const TemperatureChart = ({
 
                     return (
                         <li
-                            className="list__item-temp"
+                            className="list__item"
                             key={`${temperature}-${i}`}
                         >
                             <div
@@ -39,14 +39,14 @@ const TemperatureChart = ({
                                     height: calculateHeight(roundedTemp),
                                     backgroundColor: calculateColor(roundedTemp)
                                 }}
-                                className={`list__item-bar ${isMinus ? 'list__item-bar--is-minus' : ''}`}
+                                className={`temp-chart__item-bar ${isMinus ? 'temp-chart__item-bar--is-minus' : ''}`}
                             >
-                                <div className={`list__temp-value ${isMinus ? 'list__temp-value--is-minus' : ''}`}>
+                                <div className={`temp-chart__temp-value ${isMinus ? 'temp-chart__temp-value--is-minus' : ''}`}>
                                     {roundedTemp} &#176; C
                                 </div>
                             </div>
 
-                            <div className="list__hour-value">
+                            <div className="temp-chart__hour-value">
                                 {temperature.hour}
                             </div>
                         </li>
