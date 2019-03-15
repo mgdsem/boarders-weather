@@ -5,7 +5,7 @@ import { calculateHeight, calculateColor } from '../../helpers/styles';
 const TemperatureChart = ({
     temperatures
 }) => (
-        <div>
+        <div className="chart__wrapper">
             <h2 className="chart-title">Temperature</h2>
 
             <ul style={{ height: '250px' }} className="list temp-chart">
@@ -35,6 +35,7 @@ const TemperatureChart = ({
                                 {temperature.hour}
                             </div>
                         </li>
+
                     )
                 })}
             </ul>

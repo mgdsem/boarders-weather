@@ -13,7 +13,7 @@ class WeatherDisplay extends Component {
         this.setChart = this.setChart.bind(this);
 
         this.state = {
-            currentChart: 'wind'
+            currentChart: 'temperature'
         }
     }
 
