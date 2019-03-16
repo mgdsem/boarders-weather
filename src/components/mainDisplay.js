@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 import { filterDaysWeather } from '../helpers/dates';
 import { getWeather } from '../api';
+import { getFromStorage } from '../helpers/localStorage';
 
 import Input from './Input';
 import Button from './Button';
 import Card from './Card';
 import SavingHandler from './SavingHandler';
+
+
 
 
 class MainDisplay extends Component {
@@ -17,7 +20,7 @@ class MainDisplay extends Component {
         this.onCityChoose = this.onCityChoose.bind(this);
 
         this.state = {
-            city: 'Lubin',
+            city: '',
             chosenCity: '',
             weather: [],
             isError: false,
@@ -26,7 +29,8 @@ class MainDisplay extends Component {
     }
 
     componentDidMount() {
-        this.onCityChoose();
+        const savedCity = getFromStorage('city');
+        this.onCityChoose(savedCity);
     }
 
     onCityChange(e) {
@@ -35,15 +39,16 @@ class MainDisplay extends Component {
         });
     }
 
-    onCityChoose() {
-        if (this.state.city) {
-            getWeather(this.state.city)
+    onCityChoose(savedCity) {
+        const city = savedCity || this.state.city;
+        if (city) {
+            getWeather(city)
                 .then((response) => {
                     this.setState({
                         weather: filterDaysWeather(response.data.list),
                         isError: false,
                         currentWeather: response.data.list[0],
-                        chosenCity: this.state.city
+                        chosenCity: city
                     })
                 })
                 .catch((error) => {
@@ -69,10 +74,10 @@ class MainDisplay extends Component {
                         errorText="There is no information about choosen city. Pleace choose another city."
                     />
 
-                    <Button onClick={this.onCityChoose} isSmall>Go!</Button>
+                    <Button onClick={(e) => this.onCityChoose()} isSmall>Go!</Button>
 
                     {this.state.chosenCity && (
-                        <SavingHandler />
+                        <SavingHandler chosenCity={this.state.chosenCity} />
                     )}
                 </div>
 
