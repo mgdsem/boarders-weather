@@ -6,6 +6,8 @@ import { getWeather } from '../api';
 import Input from './Input';
 import Button from './Button';
 import Card from './Card';
+import SavingHandler from './SavingHandler';
+
 
 class MainDisplay extends Component {
     constructor(props) {
@@ -69,6 +71,9 @@ class MainDisplay extends Component {
 
                     <Button onClick={this.onCityChoose} isSmall>Go!</Button>
 
+                    {this.state.chosenCity && (
+                        <SavingHandler />
+                    )}
                 </div>
 
                 {this.state.chosenCity && (
