@@ -1,0 +1,13 @@
+.checkbox {
+
+    &__wrapper {
+        @include flex-center();
+
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    &__input {
+        margin-right: 10px;
+    }
+}

@@ -3,10 +3,11 @@ import React from 'react';
 const Button = ({
     onClick,
     children,
-    isSmall
+    isSmall,
+    isDisabled
 }) => (
         <div>
-            <button className={`button ${isSmall ? 'button--is-small' : ''}`} onClick={onClick}>{children}</button>
+            <button className={`button ${isSmall ? 'button--is-small' : ''}`} onClick={onClick} disabled={isDisabled}>{children}</button>
         </div>
     );
 
