@@ -3,12 +3,14 @@ export const setInStorage = (name, value) => {
     //     localStorage.setItem(name, value);
     // }
 
-    const boarderAppData = {
-        [name]: value
-    }
-
-    const parsedData = JSON.stringify(boarderAppData);
     if (localStorage) {
+        const previousData = localStorage.getItem('boarderApp');
+        const previousParsedData = JSON.parse(previousData);
+        const boarderAppData = {
+            ...previousParsedData,
+            [name]: value
+        }
+        const parsedData = JSON.stringify(boarderAppData);
         localStorage.setItem('boarderApp', parsedData);
     }
 }
@@ -17,6 +19,6 @@ export const getFromStorage = (name) => {
     if (localStorage) {
         const boarderAppData = localStorage.getItem('boarderApp');
         const parsedData = JSON.parse(boarderAppData);
-        return parsedData[name];
+        return parsedData ? parsedData[name] : null;
     }
 }

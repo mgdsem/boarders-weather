@@ -22,5 +22,12 @@
             background-color: $small-btn-bg-hov;
         }
     }
+
+    &:disabled {
+        &:hover {
+            background-color: $btn-bg;
+            cursor: default;
+        }
+    }
 }
 
